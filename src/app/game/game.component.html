@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <div class="container" id="all">
+    <div class="flex" style="position: absolute;" >
+      <p (click)="backgr()" id="switch">gradient</p>
+      <a href="index.html" class="refresh">🔄</a>
+    </div>
+    <h1 [class.tit]="true">TicTacToe</h1>
+    <div class="enter">
+      <h2>Choose your warrior:</h2>
+      <div class="FC">
+        <button id="cir" (click)="chooseSign('O')">O</button>
+        <button id="cr" (click)="chooseSign('X')">X</button>
+      </div>
+    </div>
+    <div class="game disabled">
+      <div [class.tictoeField]="true">
+        <div class="el f0" (click)="initMove(0)" (mouseenter)="over(0)" (mouseleave)="notOver(0)"></div>
+        <div class="el f1" (click)="initMove(1)" (mouseenter)="over(1)" (mouseleave)="notOver(1)"></div>
+        <div class="el f2" (click)="initMove(2)" (mouseenter)="over(2)" (mouseleave)="notOver(2)"></div>
+        <div class="el f3" (click)="initMove(3)" (mouseenter)="over(3)" (mouseleave)="notOver(3)"></div>
+        <div class="el f4" (click)="initMove(4)" (mouseenter)="over(4)" (mouseleave)="notOver(4)"></div>
+        <div class="el f5" (click)="initMove(5)" (mouseenter)="over(5)" (mouseleave)="notOver(5)"></div>
+        <div class="el f6" (click)="initMove(6)" (mouseenter)="over(6)" (mouseleave)="notOver(6)"></div>
+        <div class="el f7" (click)="initMove(7)" (mouseenter)="over(7)" (mouseleave)="notOver(7)"></div>
+        <div class="el f8" (click)="initMove(8)" (mouseenter)="over(8)" (mouseleave)="notOver(8)"></div>
+      </div>
+      <button id="restart" [style.fontWeight]="'900'" (click)="start()">Restart</button>
+    </div>
+    <video autoplay muted loop id="myVideo">
+      <source [src]="" type="video/mp4">
+    </video>
+    <div class="endOfGame disabled">
+      <p></p>
+      <div class="FC">
+        <button id="cir" (click)="chooseSign('O')">O</button>
+        <button id="cr" (click)="chooseSign('X')">X</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
