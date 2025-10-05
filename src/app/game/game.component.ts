@@ -60,7 +60,20 @@ export class GameComponent {
     }
   }
 
-  public start() {
+  public async start() {
+    if(!this.el('.game')!.classList.contains('disabled')) {
+      this.el<HTMLElement>('.game')!.style.opacity = "0%"
+      setTimeout(() => {
+        this.el<HTMLElement>('.game')!.style.opacity = "100%"
+        this.prepareGame()
+      }, 500);
+    } else {
+      this.el('.game')!.classList.remove('disabled')
+      this.prepareGame()
+    }
+  }
+
+  public prepareGame() {
     if(!this.el('.endOfGame')!.classList.contains('disabled')){
       this.el('.endOfGame')!.classList.add('disabled')
       this.el('.game #restart')!.classList.remove('disabled')
@@ -74,7 +87,6 @@ export class GameComponent {
     this.check = 'continue'
     this.GTurn = true
     this.el('.enter')!.classList.add('disabled')
-    this.el('.game')!.classList.remove('disabled')
   }
 
   public initMove(id:number) {
@@ -104,7 +116,6 @@ export class GameComponent {
 
   private AIMove() {
     const bestMove:minmaxMove = this.minimax(this.board, 0, true)
-    console.log(bestMove)
     this.move(bestMove.index!)
   }
 

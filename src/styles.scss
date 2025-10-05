@@ -54,7 +54,6 @@ body {
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    top: calc(15vh);
     width: 100%;
     height: 100%;
     display: flex;
@@ -71,9 +70,9 @@ body {
         align-content: center;
         opacity: 60%;
         .el {
-            width: 90px;
-            height: 90px;
-            font-size: 75px;
+            width: 100px;
+            height: 100px;
+            font-size: 80px;
             text-align: center;
             background-color: white;
             color: rgb(124, 124, 124);
@@ -224,11 +223,14 @@ h2 {
     cursor: pointer;
 }
 // worky
-@media only screen and (max-height: 500px) {
+@media only screen and (max-height: 700px) {
     .game .tictoeField .el {
-        width: 50px;
-        height: 50px;
-        font-size: 40px;
+        width: 15vh;
+        height: 15vh;
+        font-size: 12vh;
+    }
+    .game {
+        top: 15vh;
     }
     .tit {
         font-size: 10vh;
