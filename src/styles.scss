@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
-    font-family: 'Montserrat';
+    text-decoration: none;    
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
     color: white;
     overflow: hidden;
     z-index: 1;
@@ -16,16 +18,16 @@ body {
 .tit {
     position: absolute;
     transform: translateX(-50%);
-    padding-top: 100px;
-    font-size: 53.3px;
+    top: 15%;
     left: 50%;
+    font-size: 54px;
     mix-blend-mode: overlay;
 }
 .enter {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 300px;
+    top: calc(15vh + 54px*2);
     z-index: 10;
     transition-duration: 0.5s;
     mix-blend-mode: overlay;
@@ -52,9 +54,9 @@ body {
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    top: 180px;
-    width: 500px;
-    height: 500px;
+    top: calc(15vh);
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,16 +65,16 @@ body {
     mix-blend-mode: overlay;
     z-index: 10;
     .tictoeField {
-        width: 282px;
-        height: 282px;
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+        align-content: center;
         opacity: 60%;
         .el {
-            font-size: 75px;
-            text-align: center;
             width: 90px;
             height: 90px;
+            font-size: 75px;
+            text-align: center;
             background-color: white;
             color: rgb(124, 124, 124);
             border-bottom: none;
@@ -121,13 +123,14 @@ body {
 .disabled {
     opacity: 0;
     top: 100% !important;
+    z-index: 0;
 }
 video {
     position: relative;
     right: 5px;
     bottom: 5px;
-    width: 101vw;
-    height: 940px;
+    width: 100%;
+    height: 100vh;
     z-index: 0;
     transition: 1s;
 }
@@ -210,10 +213,27 @@ html > div[style] {
     filter: hue-rotate(221deg) brightness(55%) contrast(300%);
     cursor: default;
 }
+h2 {
+    text-align: center;
+}
 #switch {
     background: rgba(151, 18, 0, 0.39);
     padding-top: 8px;
     height: 27.5px;
     border-radius: 0 15px 15px 0;
     cursor: pointer;
+}
+
+@media only screen and (max-height: 500px) {
+    .game .tictoeField .el {
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+    }
+    .tit {
+        font-size: 10vh;
+    }
+    .enter {
+        top: 30vh;
+    }
 }
